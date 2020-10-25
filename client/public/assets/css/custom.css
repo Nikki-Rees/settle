@@ -1,0 +1,44 @@
+body {
+    font-family: 'Roboto', sans-serif;  
+}
+
+
+h1 {
+    padding-top:40px;
+    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #03345c;
+}
+
+
+
+.bg-primary {
+    background-color: #215376!important;
+}
+
+.hero-image {
+    background-image: url("../images/rsz_canvadoors5.jpg"); 
+    background-color: #cccccc; 
+    height: 960px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+  }
+
+.jumbotron {
+    text-align: center;
+    background: solid;
+    margin-top: 100px;
+    width:40%;
+    height: 280px;
+   font-family: 'Roboto', sans-serif;
+   color: #03345c;
+   padding-top: 40px; 
+}
+
+.logo {
+    height: 50px;
+}
+
+
+
