@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addImage } from "../actions/imageActions";
-class Form extends React.Component {
+import { addImage } from "../../actions/imageActions";
+
+class ImageForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -34,7 +35,7 @@ class Form extends React.Component {
         return (
             <div className="form-container">
                 <form encType="multipart/form-data" onSubmit={this.onSubmit}>
-                    <h2>Image Form</h2>
+
                     <label className="form-label">Image Title</label>
                     <input
                         className="form-input"
@@ -47,10 +48,10 @@ class Form extends React.Component {
                     <input type="file"
                         className="form-input"
                         onChange={this.onChangeImage} />
-                    <button type="submit" className="submit-btn">Submit!</button>
+                    <button type="submit" className="submit-btn">Save</button>
                 </form>
             </div>
         );
     }
 }
-export default connect(null, { addImage })(Form);
+export default connect(null, { addImage })(ImageForm);

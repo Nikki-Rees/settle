@@ -1,6 +1,6 @@
 import { ADD_IMAGE, GET_IMAGES, GET_ERRORS } from "./types";
-import AxiosAPI from "../components/AxiosAPI";
-import history from "../history";
+import AxiosAPI from "../components/Cloudinary/AxiosAPI";
+import history from "../utils/history";
 //ADD IMAGE
 export const addImage = imageData => dispatch => {
     AxiosAPI.post("/add", imageData).then(res => dispatch({

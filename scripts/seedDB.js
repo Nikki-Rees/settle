@@ -3,28 +3,42 @@ const db = require("../models");
 
 // This file empties the Posts collection and inserts the books below
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/settle");
 
-const bookSeed = [
+const postSeed = [
   {
-    title: "Hello World",
-    author: "admin",
-    body:
-      "Welcome to your first post! To create posts create a title and body. Don't forget to include your screen name!",
+    room: "Kitchen",
+    title: "Sink",
+    condition: "Excellent",
+    clean: "Squeaky clean",
+    function: "Functioning",
+    image: "../../assets/images/countersink.jpg",
+    imageID: "countersink.jpg",
+    body: "Sink in good working order, tapware clean and tightened",
+    date: new Date(Date.now())
+
+
+  },
+  {
+    room: "Kitchen",
+    title: "Sink pipes",
+    condition: "Replacement required",
+    clean: "Squeaky clean",
+    function: "Functioning",
+    image: "../../assets/images/underkitchensink.jpg",
+    imageID: "underkitchensink.jpg",
+    body: "Sink pipe blockage been resolved, however pipe requires replacement",
     date: new Date(Date.now())
   },
   {
-    title: "The Second Post",
-    author: "admin",
-    body:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Another One",
-    author: "admin",
-    body:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    room: "Kitchen",
+    title: "Stove",
+    condition: "Good",
+    clean: "Acceptable",
+    function: "Functioning",
+    image: "../../assets/images/stovetop.jpg",
+    imageID: "stovetop.jpg",
+    body: "Stove top in good working order, stove has been cleaned however some staining remains around hobs",
     date: new Date(Date.now())
   }
 ];

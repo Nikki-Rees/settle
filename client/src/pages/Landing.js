@@ -16,7 +16,7 @@ function Landing() {
                             <Jumbotron>
                                 <h1>Landlord</h1>
                                 <p>Manage your property</p>
-                                <Button outline color="info">Sign-up</Button>{''}
+                                <Button outline color="info" href="/signup">Sign-up</Button>{''}
                             </Jumbotron>
                         </div>
                     </Col>
