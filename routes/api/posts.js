@@ -1,14 +1,11 @@
 const router = require("express").Router();
 const postsController = require("../../controllers/postsController");
-
-require("../../config/cloudinary.config");
-const upload = require("../../config/multer");
-
+const upload = require("../../cloudinary").upload;
 // Matches with "/api/posts"
 router
   .route("/")
   .get(postsController.findAll)
-  .post(postsController.create);
+  .post(upload.single("image"), postsController.create);
 
 // Matches with "/api/posts/:id"
 router

@@ -8,7 +8,7 @@ const postSchema = new Schema({
   clean: String,
   function: String,
   image: String,
-  imageID: String,
+  imageId: String,
   body: String,
   date: { type: Date, default: Date.now }
 });

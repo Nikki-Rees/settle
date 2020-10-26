@@ -16,14 +16,13 @@ export default {
   // Saves a post to the database
   savePost: function (postData) {
     const formData = new FormData();
-    formData.append("room", postData.roomname)
-    // add a line per value
-    formData.append("title", postData.title)
-    formData.append("condition", postData.condition)
-    formData.append("clean", postData.clean)
-    formData.append("function", postData.function)
-    formData.append("body", postData.body)
-    formData.append("image", postData.image)
+    formData.append("room", postData.roomname);
+    formData.append("title", postData.title);
+    formData.append("condition", postData.condition);
+    formData.append("clean", postData.clean);
+    formData.append("function", postData.function);
+    formData.append("body", postData.body);
+    formData.append("image", postData.image);
     return axios.post("/api/posts", formData);
 
   }

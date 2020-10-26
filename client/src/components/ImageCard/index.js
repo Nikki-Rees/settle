@@ -42,7 +42,7 @@ const ImageCard = props => {
                                 {state.posts.map(post => (
                                     <Card key={post._id}>
                                        
-                                            <CardImg top width="100%" src="../assets/images/countersink.jpg" alt="Card image cap" />
+                                            <CardImg top width="100%" src={post.image} alt={post.title}/>
                                             <CardBody>
                                                 <CardTitle><h4>{post.room}</h4></CardTitle>
                                                 <CardSubtitle><h4>Feature: {post.title}</h4></CardSubtitle>

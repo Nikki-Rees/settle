@@ -50,12 +50,7 @@ function CreatePostForm() {
 
   return (
     <div>
-      {/* <div className="jumbotron">
-        <img
-          className="img-fluid img-thumbnail"
-          src="https://images.pexels.com/photos/459688/pexels-photo-459688.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        />
-      </div> */}
+
       <div>
         <h1>Add a feature</h1>
         <form className="form-group mt-5 mb-5" onSubmit={handleSubmit}>
@@ -85,7 +80,7 @@ function CreatePostForm() {
 
           <input className="form-control mb-5" type="file" required ref={imageRef} onChange={onChangeImage} />
           <button className="btn btn-info mt-3 mb-5" type="submit">
-            Save Post
+            Save feature
         </button>
         </form>
       </div >

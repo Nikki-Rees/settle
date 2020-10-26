@@ -8,37 +8,14 @@ const session = require("express-session");
 const LocalStrategy = require("passport-local").Strategy;
 
 const mongoose = require("mongoose");
-const routes = require("./routes/api");
+const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const User = require("./models/user");
 const Post = require("./models/post")
 
-//Cloudinary config
-const multer = require("multer");
-const storage = multer.diskStorage({
-  filename: function (req, file, callback) {
-    callback(null, Date.now() + file.originalname);
-  }
-});
-const imageFilter = function (req, file, cb) {
-  // accept image files only
-  if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
-    return cb(new Error("Only image files are accepted!"), false);
-  }
-  cb(null, true);
-};
-const upload = multer({ storage: storage, fileFilter: imageFilter });
-const cloudinary = require("cloudinary");
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME, //ENTER YOUR CLOUDINARY NAME
-  api_key: process.env.CLOUDINARY_API_KEY, // THIS IS COMING FROM CLOUDINARY WHICH WE SAVED FROM EARLIER
-  api_secret: process.env.CLOUDINARY_API_SECRET // ALSO COMING FROM CLOUDINARY WHICH WE SAVED EARLIER
-});
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -47,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-//Added roustes for Cloudinary 
+//Added ruotes for Cloudinary 
 app.use(cors());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(bodyParser.json({ limit: "50mb", extended: true }));
