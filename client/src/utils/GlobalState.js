@@ -84,6 +84,8 @@ const StoreProvider = ({ value = [], ...props }) => {
       _id: 0,
       title: "",
       condition: "",
+      clean: "",
+      function: "",
       body: "",
       image: ""
     },

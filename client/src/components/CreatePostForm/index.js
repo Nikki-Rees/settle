@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_POST, LOADING } from "../../utils/actions";
-import { Image, Video, Transformation, CloudinaryContext } from 'cloudinary-react';
 import API from "../../utils/API";
 
 
@@ -14,6 +13,11 @@ function CreatePostForm() {
   const functionRef = useRef();
   const imageRef = useRef();
   const [state, dispatch] = useStoreContext();
+  const [image, setImage] = useState();
+
+  const onChangeImage = e => {
+    setImage(e.target.files[0])
+  }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -25,7 +29,7 @@ function CreatePostForm() {
       condition: conditionRef.current.value,
       clean: cleanRef.current.value,
       function: functionRef.current.value,
-      image: imageRef.current.value
+      image: image
     })
       .then(result => {
         dispatch({
@@ -78,8 +82,9 @@ function CreatePostForm() {
             <option>Not functional</option>
           </select>
           <textarea className="form-control mb-5" required ref={bodyRef} placeholder="Description" />
-          <input className="form-control mb-5" ref={imageRef} placeholder="Image Upload" />
-          <button className="btn btn-info mt-3 mb-5" disabled={state.loading} type="submit">
+
+          <input className="form-control mb-5" type="file" required ref={imageRef} onChange={onChangeImage} />
+          <button className="btn btn-info mt-3 mb-5" type="submit">
             Save Post
         </button>
         </form>
@@ -87,5 +92,6 @@ function CreatePostForm() {
     </div>
   );
 }
+// disabled={state.loading}
 
 export default CreatePostForm;

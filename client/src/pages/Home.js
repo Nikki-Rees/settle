@@ -1,6 +1,5 @@
 import React from "react";
 import ImageCard from "../components/ImageCard";
-import ImageForm from "../components/ImageForm";
 import { Col, Row, Container } from "../components/Grid";
 import CreatePostForm from "../components/CreatePostForm";
 import PostsList from "../components/PostsList";
@@ -9,11 +8,8 @@ const Home = () => {
   return (
     <Container fluid>
       <Row>
-        <Col size="md-6">
+        <Col size="md-12">
           <ImageCard />
-        </Col>
-        <Col size="md-6 sm-12">
-          <ImageForm />
         </Col>
       </Row>
       <Row>

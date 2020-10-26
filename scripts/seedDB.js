@@ -44,7 +44,7 @@ const postSeed = [
 ];
 
 db.Post.remove({})
-  .then(() => db.Post.collection.insertMany(bookSeed))
+  .then(() => db.Post.collection.insertMany(postSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

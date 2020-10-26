@@ -9,9 +9,10 @@ const LocalStrategy = require("passport-local").Strategy;
 
 const mongoose = require("mongoose");
 const routes = require("./routes/api");
-const User = require("./routes/api/user")
 const app = express();
 const PORT = process.env.PORT || 3001;
+const User = require("./models/user");
+const Post = require("./models/post")
 
 //Cloudinary config
 const multer = require("multer");
