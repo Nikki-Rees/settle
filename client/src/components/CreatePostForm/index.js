@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_POST, LOADING } from "../../utils/actions";
+import { Image, Video, Transformation, CloudinaryContext } from 'cloudinary-react';
 import API from "../../utils/API";
 
 

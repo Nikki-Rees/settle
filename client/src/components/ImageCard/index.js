@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
-import { Card, Button, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, CardBody } from 'reactstrap';
+import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+import { Card, Button, CardImg, CardTitle, CardDeck, CardSubtitle, CardBody } from 'reactstrap';
 import "./style.css"
 import API from "../../utils/API";
 import { useStoreContext } from "../../utils/GlobalState";

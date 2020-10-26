@@ -1,19 +1,19 @@
 {
-  "name": "redux-mini-project",
+  "name": "settle",
   "version": "1.0.0",
-  "description": "",
+  "description": "Application to manage rental properties for both tenent and landlord",
   "main": "server.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "node server.js",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "start:dev": "nodemon server.js",
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "author": "",
+  "author": "Nikki Rees",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.0",
@@ -22,6 +22,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "cloudinary": "^1.23.0",
+    "cloudinary-react": "^1.6.7",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
@@ -30,6 +31,22 @@
     "multer-storage-cloudinary": "^4.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "reactstrap": "^8.6.0"
-  }
+    "react-redux": "^7.2.1",
+    "reactstrap": "^8.6.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikki-Rees/settle.git"
+  },
+  "keywords": [
+    "React",
+    "MERN",
+    "Cloudinary"
+  ],
+  "bugs": {
+    "url": "https://github.com/Nikki-Rees/settle/issues"
+  },
+  "homepage": "https://github.com/Nikki-Rees/settle#readme"
 }

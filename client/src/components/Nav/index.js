@@ -2,7 +2,7 @@ import React from "react";
 import { useStoreContext } from "../../utils/GlobalState";
 
 function Nav() {
-  const [store] = useStoreContext();
+  // const [store] = useStoreContext();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -15,7 +15,7 @@ function Nav() {
       <a className="navbar-brand" href="/conditionreport/">
         Manage issues
       </a>
-      {store.loading ? <a className="navbar-brand ml-auto">Loading...</a> : <></>}
+      {/* {store.loading ? <a className="navbar-brand ml-auto">Loading...</a> : <></>} */}
     </nav>
   );
 }
