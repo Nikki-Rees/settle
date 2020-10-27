@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext"
 
 
-export default function SignUp() {
+export default function LogIn() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const [userDetails, setUserDetails] = useContext(UserContext);
 
     const handleEmailChange = event => {
         setEmail(event.target.value)
@@ -18,20 +19,23 @@ export default function SignUp() {
         setPassword(event.target.value)
     };
 
-    const signupLandlord = e => {
+    const loginLandlord = e => {
         e.preventDefault();
-        console.log("sending credentials to backend  - email is: " + email);
-        API.Signup({
+
+        API.Login({
             email: email,
             password: password,
-        })
+        }).then(data =>
+            loginLandlord(data.data)
+        )
+            .catch(err => console.log(err))
 
     };
 
     return (
         <Container>
             <div className="mt-4">
-                <h2>Sign up</h2>
+                <h2>Login</h2>
             </div>
             <form >
                 <Container className="mt-3 px-5">
@@ -59,20 +63,19 @@ export default function SignUp() {
                             />
                         </Col>
                     </Row>
-                    <button className="btn btn-success" type="submit" onClick={signupLandlord}>
-                        Submit
-          </button>
-                </Container>
-                <Container className="mt-4">
-                    <h3>Your username is {email}!</h3>
-                    <p>Your password is {password}!</p>
-                </Container>
+                    <Row>
+                        <button className="btn btn-success" type="submit" onClick={loginLandlord}>
+                            Submit
+                    </button>
 
-                <Link to="/login"> Already have an account? Log in</Link>
 
+
+                        <Link to="/login"> Don't have an account? Sign up</Link>
+                    </Row>
+                </Container>
             </form>
-
         </Container>
+
     );
 };
 

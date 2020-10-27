@@ -1,6 +1,38 @@
 import axios from "axios";
 
 export default {
+
+  Signup: function (signupData) {
+    return axios.post("/signup, signUpData")
+      .then(data => window.location = "/signin");
+  },
+
+  Login: function (loginData) {
+    return axios.post("/login, logInData")
+      .then(data => {
+        window.location = "./home";
+        return data;
+      }).catch(err => {
+        console.log("Error with login: ", err);
+        if (err) {
+          alert("Incorrect username or password");
+          return;
+        }
+      });
+  },
+
+  Logout: function () {
+    return axios.get("/logout")
+      .then(data => {
+        localStorage.removeItem("user");
+        window.location = "./home";
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
+
+
   // Gets all posts
   getPosts: function () {
     return axios.get("/api/posts");

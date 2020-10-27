@@ -41,13 +41,14 @@ const Detail = props => {
         </Row>
         <Row>
           <Col size="md-10 md-offset-1">
-            <article>
+            <Container>
               <h1>Feature: {state.currentPost.title}</h1>
               <p>Condition: {state.currentPost.condition}</p>
               <p>Functionality: {state.currentPost.function}</p>
               <p>Cleanliness: {state.currentPost.clean}</p>
               <p>Description: {state.currentPost.body}</p>
-            </article>
+              <p>Date stamp: {state.currentPost.date}</p>
+            </Container>
           </Col>
 
           {state.favorites.indexOf(state.currentPost) !== -1 ? (
@@ -58,7 +59,7 @@ const Detail = props => {
               <button className="btn" onClick={addFavorite}>
                 Add to Issues List
               </button>
-            )}
+            )};
         </Row>
         <Row>
           <Col size="md-2">

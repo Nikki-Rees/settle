@@ -2,12 +2,12 @@ const User = require("../../models/user");
 const passport = require("passport");
 const router = require("express").Router;
 
+
 router.post("/signup", (req, res, next) => {
     User.register(new User({
         username: req.body.username,
-        email: req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName
+        email: req.body.email
+
     }),
         req.body.password, (err, user) => {
             if (err) {
@@ -41,15 +41,14 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json({
-            firstName: person.firstName,
-            lastName: person.lastName,
+
             email: person.email,
             username: person.username
         });
     })
 });
 
-router.length("/logout", (req, res, next) => {
+router.get("/logout", (req, res, next) => {
     if (req.session) {
         req.logout();
         req.session.destroy((err) => {
@@ -63,7 +62,7 @@ router.length("/logout", (req, res, next) => {
             }
         });
     } else {
-        let err = new Error("Your not logged out yet");
+        let err = new Error("You are not logged in");
         err.status = 403;
         next(err);
     }
