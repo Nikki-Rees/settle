@@ -11,7 +11,7 @@ export default {
   Login: function (loginData) {
     return axios.post("/api/users/login", loginData)
       .then(data => {
-        window.location = "./home";
+        window.location = "/home";
         return data;
       }).catch(err => {
         console.log("Error with login: ", err);
@@ -26,7 +26,7 @@ export default {
     return axios.get("/logout")
       .then(data => {
         localStorage.removeItem("user");
-        window.location = "./home";
+        window.location = "/home";
       })
       .catch(err => {
         console.log(err)

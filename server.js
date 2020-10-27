@@ -13,10 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const User = require("./models/user");
 const Post = require("./models/post")
+const path = require('path');
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(publicPath, 'index.html'));
-// });
+
 
 
 // Serve up static assets (usually on heroku)
@@ -27,8 +26,10 @@ if (process.env.NODE_ENV === "production") {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(passport.initialize());
+app.use(passport.session());
 // Add routes, both API and view
-app.use(routes);
+
 
 //Added ruotes for Cloudinary 
 app.use(cors());
@@ -52,8 +53,7 @@ app.use(session({
   saveUninitialized: false,
   resave: false
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -71,7 +71,9 @@ mongoose.set("useCreateIndex", true, "useFindandModify", false)
 
 mongoose.Promise = global.Promise;
 
+app.use(routes);
 
+app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client/build/index.html')));
 
 // Start the API server
 app.listen(PORT, function () {

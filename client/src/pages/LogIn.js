@@ -2,21 +2,21 @@ import React, { useState, useContext } from "react";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { Link } from "react-router-dom";
-import UserContext from "../utils/UserContext"
+import UserContext from "../utils/UserContext";
 
 
 export default function LogIn() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [userDetails, setUserDetails] = useContext(UserContext);
+
 
     const handleUsernameChange = event => {
-        setUsername(event.target.value)
+        setUsername(event.target.value);
     };
 
     const handlePasswordChange = event => {
-        setPassword(event.target.value)
+        setPassword(event.target.value);
     };
 
     const loginLandlord = e => {
@@ -25,10 +25,9 @@ export default function LogIn() {
         API.Login({
             username: username,
             password: password,
-        }).then(data =>
-            loginLandlord(data.data)
-        )
-            .catch(err => console.log(err))
+        })
+
+            .catch(err => console.log(err));
 
     };
 
@@ -37,7 +36,7 @@ export default function LogIn() {
             <div className="mt-4">
                 <h2>Login</h2>
             </div>
-            <form >
+            <form>
                 <Container className="mt-3 px-5">
 
                     <Row className="form-group">
@@ -47,8 +46,7 @@ export default function LogIn() {
                                 type="text"
                                 placeholder="Email address (also your username)"
                                 name="email"
-                                onChange={handleUsernameChange}
-                            />
+                                onChange={handleUsernameChange} />
                         </Col>
                     </Row>
 
@@ -59,14 +57,13 @@ export default function LogIn() {
                                 type="password"
                                 placeholder="Password"
                                 name="password"
-                                onChange={handlePasswordChange}
-                            />
+                                onChange={handlePasswordChange} />
                         </Col>
                     </Row>
                     <Row>
                         <button className="btn btn-success" type="submit" onClick={loginLandlord}>
                             Submit
-                    </button>
+                        </button>
 
 
 
