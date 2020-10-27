@@ -87,6 +87,6 @@ function CreatePostForm() {
     </div>
   );
 }
-// disabled={state.loading}
+
 
 export default CreatePostForm;

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
-import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import { Card, Button, CardImg, CardTitle, CardDeck, CardSubtitle, CardBody } from 'reactstrap';
 import "./style.css"
 import API from "../../utils/API";
@@ -44,11 +43,11 @@ const ImageCard = props => {
                                        
                                             <CardImg top width="100%" src={post.image} alt={post.title}/>
                                             <CardBody>
-                                                <CardTitle><h4>{post.room}</h4></CardTitle>
-                                                <CardSubtitle><h4>Feature: {post.title}</h4></CardSubtitle>
-                                                <CardSubtitle><h4>Condition: {post.condition}</h4> </CardSubtitle>
+                                                <CardTitle><h5>{post.room}</h5></CardTitle>
+                                                <CardSubtitle><h6>Feature: {post.title}</h6></CardSubtitle>
+                                                <CardSubtitle><h6>Overall condition: {post.condition}</h6> </CardSubtitle>
                                                 <Link to={"/posts/" + post._id}>
-                                                <Button>Edit</Button>
+                                                <Button>View details</Button>
                                                 </Link>    
                                                 </CardBody>
                                

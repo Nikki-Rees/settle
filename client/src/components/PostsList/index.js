@@ -57,7 +57,7 @@ function PostsList() {
         <h3>You haven't added any features yet!</h3>
       )}
       <div className="mt-5">
-        <Link to="favorites">View saved issues</Link>
+        <Link to="/favorites">View saved issues</Link>
       </div>
     </div>
   );

@@ -40,5 +40,9 @@ h1 {
     height: 50px;
 }
 
-
+.detail-image {
+    height:680px;
+    margin-top: 20px;
+    padding: 20px;
+}
 

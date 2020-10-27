@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-import { FormGroup } from "reactstrap";
+
 
 const SignUp = () => {
     const [username, setUsername] = useState();

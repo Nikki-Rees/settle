@@ -16,7 +16,7 @@ export default {
   // Saves a post to the database
   savePost: function (postData) {
     const formData = new FormData();
-    formData.append("room", postData.roomname);
+    formData.append("room", postData.room);
     formData.append("title", postData.title);
     formData.append("condition", postData.condition);
     formData.append("clean", postData.clean);

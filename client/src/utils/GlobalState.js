@@ -82,6 +82,7 @@ const StoreProvider = ({ value = [], ...props }) => {
     posts: [],
     currentPost: {
       _id: 0,
+      room: "",
       title: "",
       condition: "",
       clean: "",

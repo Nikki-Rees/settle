@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
+
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 import { SET_CURRENT_POST, ADD_FAVORITE, REMOVE_FAVORITE } from "../utils/actions";
@@ -34,11 +34,9 @@ const Detail = props => {
       <Container fluid>
         <Row>
           <Col size="md-12">
-            <Jumbotron>
-              {/* <img>
-                {state.currentPost.image}
-              </img> */}
-            </Jumbotron>
+
+            <img className="detail-image" src={state.currentPost.image} alt={state.currentPost.title} />
+
           </Col>
         </Row>
         <Row>
@@ -46,12 +44,15 @@ const Detail = props => {
             <article>
               <h1>Feature: {state.currentPost.title}</h1>
               <p>Condition: {state.currentPost.condition}</p>
+              <p>Functionality: {state.currentPost.function}</p>
+              <p>Cleanliness: {state.currentPost.clean}</p>
               <p>Description: {state.currentPost.body}</p>
             </article>
           </Col>
+
           {state.favorites.indexOf(state.currentPost) !== -1 ? (
             <button className="btn btn-danger" onClick={removeFavorite}>
-              Remove from Issues List!
+              Remove from Issues List
             </button>
           ) : (
               <button className="btn" onClick={addFavorite}>

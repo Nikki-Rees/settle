@@ -1,5 +1,4 @@
 import React from "react";
-import { useStoreContext } from "../../utils/GlobalState";
 
 function Nav() {
   // const [store] = useStoreContext();
@@ -12,7 +11,7 @@ function Nav() {
       <a className="navbar-brand" href="/home/">
         Condition Report
       </a>
-      <a className="navbar-brand" href="/conditionreport/">
+      <a className="navbar-brand" href="/favorites/">
         Manage issues
       </a>
       {/* {store.loading ? <a className="navbar-brand ml-auto">Loading...</a> : <></>} */}
