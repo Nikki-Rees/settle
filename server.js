@@ -60,10 +60,14 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/settle", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/deep-thoughts',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
   .then(() => console.log("Database connected successfully"))
   .catch(err => console.log(err));
 
