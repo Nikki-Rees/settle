@@ -14,7 +14,9 @@ const PORT = process.env.PORT || 3001;
 const User = require("./models/user");
 const Post = require("./models/post")
 
-
+app.get('*', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 
 // Serve up static assets (usually on heroku)
