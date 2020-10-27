@@ -7,12 +7,12 @@ import UserContext from "../utils/UserContext"
 
 export default function LogIn() {
 
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [userDetails, setUserDetails] = useContext(UserContext);
 
-    const handleEmailChange = event => {
-        setEmail(event.target.value)
+    const handleUsernameChange = event => {
+        setUsername(event.target.value)
     };
 
     const handlePasswordChange = event => {
@@ -23,7 +23,7 @@ export default function LogIn() {
         e.preventDefault();
 
         API.Login({
-            email: email,
+            username: username,
             password: password,
         }).then(data =>
             loginLandlord(data.data)
@@ -47,7 +47,7 @@ export default function LogIn() {
                                 type="text"
                                 placeholder="Email address (also your username)"
                                 name="email"
-                                onChange={handleEmailChange}
+                                onChange={handleUsernameChange}
                             />
                         </Col>
                     </Row>

@@ -23,6 +23,10 @@ const Post = require("./models/post")
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Add routes, both API and view
 app.use(routes);
 

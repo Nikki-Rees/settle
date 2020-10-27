@@ -1,12 +1,13 @@
 const User = require("../../models/user");
 const passport = require("passport");
-const router = require("express").Router;
+const router = require("express").Router();
 
 
 router.post("/signup", (req, res, next) => {
+    console.log(req.body)
     User.register(new User({
         username: req.body.username,
-        email: req.body.email
+        password: req.body.password
 
     }),
         req.body.password, (err, user) => {
@@ -42,7 +43,6 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
         res.setHeader("Content-Type", "application/json");
         res.json({
 
-            email: person.email,
             username: person.username
         });
     })
@@ -68,7 +68,7 @@ router.get("/logout", (req, res, next) => {
     }
 });
 
-router.get("/api/getUserDetails", (req, res) => {
+router.get("/getUserDetails", (req, res) => {
     User.find({})
         .then(data => res.json(data))
         .catch(err => res.status(422).json(err))

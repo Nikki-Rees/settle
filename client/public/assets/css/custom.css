@@ -2,15 +2,12 @@ body {
     font-family: 'Roboto', sans-serif;  
 }
 
-
 h1 {
     padding-top:40px;
     padding-bottom: 20px;
     font-family: 'Roboto', sans-serif;
     color: #03345c;
 }
-
-
 
 .bg-primary {
     background-color: #215376!important;
@@ -41,7 +38,7 @@ h1 {
 }
 
 .detail-image {
-    height:680px;
+    height:480px;
     margin-top: 20px;
     padding: 20px;
 }

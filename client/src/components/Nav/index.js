@@ -14,6 +14,9 @@ function Nav() {
       <a className="navbar-brand" href="/favorites/">
         Manage issues
       </a>
+      <a className="navbar-brand" href="/houseprofile/">
+        House Profile
+      </a>
       <a className="navbar-brand" href="/login/">
         Login
       </a>

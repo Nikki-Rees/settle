@@ -10,6 +10,7 @@ import { StoreProvider } from "./utils/GlobalState";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import FavoritesList from "./pages/FavoritesList";
+import HouseProfile from "./pages/HouseProfile";
 
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/signup" component={LogIn} />
+            <Route exact path="/login" component={LogIn} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/favorites" component={FavoritesList} />
             <Route exact path="/posts/:id" component={Detail} />
+            <Route exact path="/houseprofile" component={HouseProfile} />
             <Route component={NoMatch} />
           </Switch>
         </StoreProvider>

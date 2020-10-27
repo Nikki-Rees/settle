@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 
 export default function SignUp() {
 
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
 
-    const handleEmailChange = event => {
-        setEmail(event.target.value)
+    const handleUsernameChange = event => {
+        setUsername(event.target.value)
     };
 
     const handlePasswordChange = event => {
@@ -20,9 +20,9 @@ export default function SignUp() {
 
     const signupLandlord = e => {
         e.preventDefault();
-        console.log("sending credentials to backend  - email is: " + email);
+        console.log("sending credentials to backend  - username is: " + username);
         API.Signup({
-            email: email,
+            username: username,
             password: password,
         })
 
@@ -43,7 +43,7 @@ export default function SignUp() {
                                 type="text"
                                 placeholder="Email address (also your username)"
                                 name="email"
-                                onChange={handleEmailChange}
+                                onChange={handleUsernameChange}
                             />
                         </Col>
                     </Row>
@@ -64,7 +64,7 @@ export default function SignUp() {
           </button>
                 </Container>
                 <Container className="mt-4">
-                    <h3>Your username is {email}!</h3>
+                    <h3>Your username is {username}!</h3>
                     <p>Your password is {password}!</p>
                 </Container>
 

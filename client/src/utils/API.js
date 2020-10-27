@@ -3,12 +3,13 @@ import axios from "axios";
 export default {
 
   Signup: function (signupData) {
-    return axios.post("/signup, signUpData")
-      .then(data => window.location = "/signin");
+    console.log(signupData)
+    return axios.post("/api/users/signup", signupData)
+      .then(() => data => window.location = "/home");
   },
 
   Login: function (loginData) {
-    return axios.post("/login, logInData")
+    return axios.post("/api/users/login", loginData)
       .then(data => {
         window.location = "./home";
         return data;
